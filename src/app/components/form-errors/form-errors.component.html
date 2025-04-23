@@ -1,0 +1,9 @@
+<div class="err text-danger" *ngIf=" control() && control().touched && control().errors">
+    <div i18n="@@required" *ngIf="control().errors.required || control().errors.whitespace" class="text-start">*Required</div>
+    <div *ngIf="control() && control().errors?.endBeforeStart  && control().touched" class="error">
+        End date must be after start date.
+    </div>
+    <div *ngIf="control().errors?.overlappingDates" class="p-error">
+        This subcourse overlaps with another one.
+    </div>
+</div>
