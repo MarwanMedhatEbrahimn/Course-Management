@@ -27,9 +27,13 @@
                             <button (click)="openAddEditCourse(false, course)" class="edit-btn">
                                 <img src="../../../assets/edit-icon.png" alt="edit-icon">
                             </button>
+                            <button (click)="deleteCourse(course.id)" class="edit-btn">
+                                <img src="../../../assets/delete.png" alt="delete">
+                            </button>
                             <button (click)="openAddEditSubCourse(true,course)" class="btn">
                                 Add Subcourse
                             </button>
+
                         </div>
                     </td>
                 </tr>
@@ -48,6 +52,9 @@
                                         <td>
                                             <button (click)="openAddEditSubCourse(false,course,subcourse)" class="edit-btn">
                                                 <img src="../../../assets/edit-icon.png" alt="edit-icon">
+                                            </button>
+                                            <button (click)="deleteSubCourse(course.id,subcourse.id)" class="edit-btn">
+                                                <img src="../../../assets/delete.png" alt="delete">
                                             </button>
                                         </td>
                                     </tr>

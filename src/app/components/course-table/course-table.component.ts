@@ -189,4 +189,19 @@ export class CourseTableComponent {
     this.courseForm.get('endDate')?.enable();
   }
   
+  deleteCourse(courseID:number){
+    this.courseService.deleteCourse(courseID);
+    this.courses = this.courseService.getCourses();
+    this.expandedRows = this.courses.reduce(
+      (acc:any, p:any) => (acc[p.id] = true) && acc, {}
+    );
+  }
+  deleteSubCourse(courseID:number,subCourseID:number){
+    this.courseService.deleteSubcourse(courseID,subCourseID);
+    this.courses = this.courseService.getCourses();
+    this.expandedRows = this.courses.reduce(
+      (acc:any, p:any) => (acc[p.id] = true) && acc, {}
+    );
+  }
+  
 }
