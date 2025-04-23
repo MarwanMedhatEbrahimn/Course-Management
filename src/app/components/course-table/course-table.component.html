@@ -71,42 +71,39 @@
     </div>
     
     
-    <p-dialog header="Edit Profile" #myDialog [modal]="true" [(visible)]="visible" [style]="{ width: '50rem', position:'relative' }">
-        <div class="">
-            <form [formGroup]="courseForm" (ngSubmit)="submit()">
-                <div class="row">
-                    <div class="col-12">
-                        <label for="" class="form-label">Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" formControlName="name">
-                        <app-form-errors [control]="courseForm.controls['name']"> </app-form-errors>
-                    </div>
+    <p-dialog [header]="dialogTitle" #myDialog [modal]="true" [(visible)]="visible" [style]="{ width: '50rem', position:'relative' }">
+        <form [formGroup]="courseForm" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-12">
+                    <label for="" class="form-label">Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="name">
+                    <app-form-errors [control]="courseForm.controls['name']"> </app-form-errors>
                 </div>
-                <div class="row mb-5 mt-3">
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Start Date <span class="text-danger">*</span></label>
-                        <p-datepicker formControlName="startDate" (onSelect)="onChangeStartDate()" [appendTo]="myDialog" [maxDate]="maxStartDate" [minDate]="minStartDate"/>
-                        <app-form-errors [control]="courseForm.controls['startDate']"> </app-form-errors>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">End Date <span class="text-danger">*</span></label>
-                        <p-datepicker formControlName="endDate" [appendTo]="myDialog" [maxDate]="maxEndDate" [minDate]="minEndDate"/>
-                        <app-form-errors [control]="courseForm.controls['endDate']"> </app-form-errors>
-                    </div>
+            </div>
+            <div class="row mb-5 mt-3">
+                <div class="col-md-6">
+                    <label for="" class="form-label">Start Date <span class="text-danger">*</span></label>
+                    <p-datepicker formControlName="startDate" (onSelect)="onChangeStartDate()" [appendTo]="myDialog" [maxDate]="maxStartDate" [minDate]="minStartDate"/>
+                    <app-form-errors [control]="courseForm.controls['startDate']"> </app-form-errors>
                 </div>
-    
-                <div class="row btns-container g-2 position-relative d-flex flex-row-reverse">
-                    <div class="col-md-6"> 
-                        <button class="btn-submit" type="submit">
-                            {{isAdd ? "Submit" : "Save Changes"}}
-                        </button>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn-Cancle"
-                         (click)="visible = false;">Cancel</button>
-                    </div>
+                <div class="col-md-6">
+                    <label for="" class="form-label">End Date <span class="text-danger">*</span></label>
+                    <p-datepicker formControlName="endDate" [appendTo]="myDialog" [maxDate]="maxEndDate" [minDate]="minEndDate"/>
+                    <app-form-errors [control]="courseForm.controls['endDate']"> </app-form-errors>
                 </div>
-            </form>
-        </div>
-    
+            </div>
+
+            <div class="row btns-container g-2 position-relative d-flex flex-row-reverse">
+                <div class="col-md-6"> 
+                    <button class="btn-submit" type="submit">
+                        {{isAdd ? "Submit" : "Save Changes"}}
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn-Cancle"
+                     (click)="visible = false;">Cancel</button>
+                </div>
+            </div>
+        </form>
     </p-dialog>
 </div>

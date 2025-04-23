@@ -39,6 +39,7 @@ export class CourseTableComponent {
   minStartDate?: Date | null = null;
   minEndDate?: Date | null = null;
   courseId?: number | null = null;
+  dialogTitle: string = 'Add New Course';
   constructor(private courseService: CourseService) {}
 
   ngOnInit() {
@@ -92,7 +93,7 @@ export class CourseTableComponent {
     this.reset();
     this.isAdd = isAdd;
     this.course = course;
-
+    this.dialogTitle = isAdd ? "Add New Course":"Edit Course"; 
     if(!isAdd){
       this.courseForm.patchValue({
         ...course
@@ -106,6 +107,7 @@ export class CourseTableComponent {
     this.reset();
     this.isAdd = isAdd;
     this.subCourse = subCourse;
+    this.dialogTitle = isAdd ? "Add New subcourse":"Edit subcourse"; 
 
     this.courseId = course?.id;
     this.maxStartDate = course?.endDate;
